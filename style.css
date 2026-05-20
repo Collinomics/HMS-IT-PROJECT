@@ -1,4 +1,4 @@
-/* ==================== LINK STYLES ==================== */
+/* ==================== LINK STYLES ====================*/ 
 a:link {
     color: #555555;
     text-decoration: none;
@@ -15,7 +15,7 @@ a:active {
     text-decoration: none;
 }
 
-/* ==================== FOOTER LINK HOVER EFFECTS ==================== */
+/* ==================== FOOTER LINK HOVER EFFECTS ====================*/
 .footer-link {
     transition: color 0.3s ease;
 }
@@ -25,7 +25,7 @@ a:active {
     text-decoration: underline !important;
 }
 
-/* ==================== BUTTON STYLES ==================== */
+/* ==================== BUTTON STYLES ====================*/
 .btn-primary {
     font-size: 16px;
     background: #3498db;
@@ -62,12 +62,12 @@ a:active {
     transform: scale(1.05);
 }
 
-/* ==================== SMOOTH SCROLLING ==================== */
+/* ==================== SMOOTH SCROLLING ====================*/
 html {
     scroll-behavior: smooth;
 }
 
-/* ==================== MOBILE RESPONSIVE ==================== */
+/* ==================== MOBILE RESPONSIVE ====================*/
 @media (max-width: 768px) {
     .top-bar td, .nav-table td {
         display: block;
@@ -83,7 +83,7 @@ html {
     }
 }
 
-/* ==================== TABLE STYLES (Optional) ==================== */
+/* ==================== TABLE STYLES (Optional) ====================*/
 table {
     border-collapse: collapse;
 }
