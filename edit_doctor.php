@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Update logic (when form is submitted)
@@ -24,19 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         hire_date = '$hire_date'
     WHERE doctor_id = $doctor_id";
 
-    if (mysql_query($query)) {
+    if (mysqli_query($con, $query)) {
         header("Location: doctors.php?msg=updated");
         exit();
     } else {
-        $error = "Error updating: " . mysql_error();
+        $error = "Error updating: " . mysqli_error();
     }
 }
 
 // Get doctor data for display
 $doctor_id = $_GET['id'];
 $query = "SELECT * FROM Doctor WHERE doctor_id = $doctor_id";
-$result = mysql_query($query);
-$row = mysql_fetch_assoc($result);
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -85,8 +89,8 @@ $row = mysql_fetch_assoc($result);
             <option value="">-- Select --</option>
             <?php
             $dept_query = "SELECT * FROM Department";
-            $dept_result = mysql_query($dept_query);
-            while ($dept = mysql_fetch_assoc($dept_result)) {
+            $dept_result = mysqli_query($con, $dept_query);
+            while ($dept = mysqli_fetch_assoc($dept_result)) {
                 $selected = ($dept['department_id'] == $row['department_id']) ? 'selected' : '';
                 echo '<option value="' . $dept['department_id'] . '" ' . $selected . '>' . $dept['department_name'] . '</option>';
             }
@@ -108,4 +112,4 @@ $row = mysql_fetch_assoc($result);
 </body>
 </html>
 
-<?php mysql_close(); ?>
+<?php mysqli_close($con); ?>

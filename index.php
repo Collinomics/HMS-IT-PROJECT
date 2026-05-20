@@ -190,7 +190,7 @@ include('config.php');
 
       if (mysqli_num_rows($result) > 0) {
           $row_count = 0;
-          while ($row = mysql_fetch_assoc($result)) {
+          while ($row = mysqli_fetch_assoc($result)) {
               $row_count++;
               $bg_color = ($row_count % 2 == 0) ? '#f9f9f9' : '#ffffff';
               

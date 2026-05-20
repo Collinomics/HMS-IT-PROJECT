@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Update logic
@@ -12,19 +16,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         location = '$location'
     WHERE department_id = $department_id";
 
-    if (mysql_query($query)) {
+    if (mysqli_query($con, $query)) {
         header("Location: departments.php?msg=updated");
         exit();
     } else {
-        $error = "Error updating: " . mysql_error();
+        $error = "Error updating: " . mysqli_error();
     }
 }
 
 // Get department data
 $department_id = $_GET['id'];
 $query = "SELECT * FROM Department WHERE department_id = $department_id";
-$result = mysql_query($query);
-$row = mysql_fetch_assoc($result);
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -68,4 +72,4 @@ $row = mysql_fetch_assoc($result);
 </body>
 </html>
 
-<?php mysql_close(); ?>
+<?php mysqli_close($con) ?>

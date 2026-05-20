@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Check if form was submitted (UPDATE)
@@ -26,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         emergency_contact_name = '$emergency_contact_name'
     WHERE patient_id = $patient_id";
 
-    if (mysql_query($query)) {
+    if (mysqli_query($con, $query)) {
         header("Location: patient.php?msg=updated");
         exit();
     } else {
@@ -37,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Get patient ID from URL (for DISPLAY)
 $patient_id = $_GET['id'];
 $query = "SELECT * FROM Patient WHERE patient_id = $patient_id";
-$result = mysql_query($query);
-$row = mysql_fetch_assoc($result);
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -104,4 +108,4 @@ $row = mysql_fetch_assoc($result);
 </body>
 </html>
 
-<?php mysql_close(); ?>
+<?php mysqli_close($con); ?>
