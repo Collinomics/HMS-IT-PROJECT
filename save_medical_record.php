@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Receive Medical Record data
@@ -29,9 +33,9 @@ $query1 = "INSERT INTO MedicalRecord (
     '$follow_up_date'
 )";
 
-if (mysql_query($query1)) {
+if (mysqli_query($con, $query1)) {
     // Get the auto-generated record_id
-    $record_id = mysql_insert_id();
+    $record_id = mysqli_insert_id($con);
     
     // Receive Prescription data
     $medication_name = $_POST['medication_name'];
@@ -67,14 +71,14 @@ if (mysql_query($query1)) {
         '$prescription_status'
     )";
     
-    if (mysql_query($query2)) {
+    if (mysqli_query($con, $query2)) {
         echo "<script>alert('Medical record and prescription saved successfully!'); window.location='records.php';</script>";
     } else {
-        echo "<script>alert('Medical record saved but prescription error: " . mysql_error() . "'); window.location='records.php';</script>";
+        echo "<script>alert('Medical record saved but prescription error: " . mysqli_error() . "'); window.location='records.php';</script>";
     }
 } else {
-    echo "<script>alert('Error saving medical record: " . mysql_error() . "'); window.location='records.php';</script>";
+    echo "<script>alert('Error saving medical record: " . mysqli_error() . "'); window.location='records.php';</script>";
 }
 
-mysql_close();
+mysqli_close();
 ?>
