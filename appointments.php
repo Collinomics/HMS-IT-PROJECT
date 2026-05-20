@@ -4,7 +4,7 @@ include('config.php');
 // Delete appointment
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
-    mysql_query("DELETE FROM Appointment WHERE appointment_id = $delete_id");
+    mysqli_query("DELETE FROM Appointment WHERE appointment_id = $delete_id");
     header("Location: appointments.php?msg=deleted");
     exit();
 }

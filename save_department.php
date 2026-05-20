@@ -6,11 +6,11 @@ $location = $_POST['location'];
 
 $query = "INSERT INTO Department (department_name, location) VALUES ('$department_name', '$location')";
 
-if (mysql_query($query)) {
+if (mysqli_query($con, $query)) {
     header("Location: departments.php?msg=added");
 } else {
-    echo "Error: " . mysql_error();
+    echo "Error: " . mysqli_error($con);
 }
 
-mysql_close();
+mysqli_close();
 ?>

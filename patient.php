@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Show success message
@@ -241,13 +245,13 @@ if (isset($_GET['delete_id'])) {
       <?php
         // Query to get all patients from database
         $query = "SELECT * FROM Patient ORDER BY patient_id ASC";
-        $result = mysql_query($query);
+        $result = mysqli_query($con, $query);
 
         // Check if there are any patients
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $row_count = 0;
             // Loop through each patient
-            while ($row = mysql_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $row_count++;
                 // Alternate row background color
                 $bg_color = ($row_count % 2 == 0) ? '#f9f9f9' : '#ffffff';

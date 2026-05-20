@@ -21,7 +21,7 @@ $query = "INSERT INTO Patient (
     '$phone', '$address', '$emergency_contact', '$registration_date'
 )";
 
-if (mysql_query($query)) {
+if (mysqli_query($con, $query)) {
     header("Location: patient.php?msg=added");
     exit();
 } else {

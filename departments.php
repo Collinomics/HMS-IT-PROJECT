@@ -1,10 +1,14 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Delete department
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
-    mysql_query("DELETE FROM Department WHERE department_id = $delete_id");
+    mysqli_query($con, "DELETE FROM Department WHERE department_id = $delete_id");
     header("Location: departments.php?msg=deleted");
     exit();
 }
@@ -174,11 +178,11 @@ if (isset($_GET['msg'])) {
     <tbody>
             <?php
             $query = "SELECT * FROM Department ORDER BY department_id ASC";
-            $result = mysql_query($query);
+            $result = mysqli_query($con, $query);
 
-            if (mysql_num_rows($result) > 0) {
+            if (mysqli_num_rows($result) > 0) {
                 $row_count = 0;
-                while ($row = mysql_fetch_assoc($result)) {
+                while ($row = mysqli_fetch_assoc($result)) {
                     $row_count++;
                     $bg_color = ($row_count % 2 == 0) ? '#f9f9f9' : '#ffffff';
                     
