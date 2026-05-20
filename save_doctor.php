@@ -23,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // First, check if the department exists
     $check_dept = "SELECT department_id FROM Department WHERE department_id = '$department_id'";
-    $dept_result = mysql_query($check_dept);
+    $dept_result = mysqli_query($con, $check_dept);
     
-    if (mysql_num_rows($dept_result) == 0) {
+    if (mysqli_num_rows($dept_result) == 0) {
         die("Error: Department ID '$department_id' does not exist. Please add the department first.");
     }
     
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         '$hire_date'
     )";
     
-    if (mysql_query($query)) {
+    if (mysqli_query($con, $query)) {
         header("Location: doctors.php?msg=added");
         exit();
     } else {
@@ -60,5 +60,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Invalid request method.";
 }
 
-mysql_close();
+mysqli_close();
 ?>

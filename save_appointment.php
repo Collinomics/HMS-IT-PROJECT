@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Receive data from the form
@@ -30,11 +34,11 @@ $query = "INSERT INTO Appointment (
 )";
 
 // Execute the query
-if (mysql_query($query)) {
+if (mysqli_query($con, $query)) {
     echo "<script>alert('Appointment scheduled successfully!'); window.location='appointments.php';</script>";
 } else {
-    echo "<script>alert('Error: " . mysql_error() . "'); window.location='appointments.php';</script>";
+    echo "<script>alert('Error: " . mysqli_error() . "'); window.location='appointments.php';</script>";
 }
 
-mysql_close();
+mysqli_close();
 ?>

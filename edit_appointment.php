@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Update logic
@@ -20,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         status = '$status'
     WHERE appointment_id = $appointment_id";
 
-    if (mysql_query($query)) {
+    if (mysqli_query($con, $query)) {
         header("Location: appointments.php?msg=updated");
         exit();
     } else {
@@ -31,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Get appointment data
 $appointment_id = $_GET['id'];
 $query = "SELECT * FROM Appointment WHERE appointment_id = $appointment_id";
-$result = mysql_query($query);
-$row = mysql_fetch_assoc($result);
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
@@ -66,8 +70,8 @@ $row = mysql_fetch_assoc($result);
             <option value="">-- Select Patient --</option>
             <?php
             $pat_query = "SELECT * FROM Patient ORDER BY first_name";
-            $pat_result = mysql_query($pat_query);
-            while ($pat = mysql_fetch_assoc($pat_result)) {
+            $pat_result = mysqli_query($con, $pat_query);
+            while ($pat = mysqli_fetch_assoc($pat_result)) {
                 $selected = ($pat['patient_id'] == $row['patient_id']) ? 'selected' : '';
                 echo '<option value="' . $pat['patient_id'] . '" ' . $selected . '>' . $pat['first_name'] . ' ' . $pat['last_name'] . '</option>';
             }
@@ -79,8 +83,8 @@ $row = mysql_fetch_assoc($result);
             <option value="">-- Select Doctor --</option>
             <?php
             $doc_query = "SELECT * FROM Doctor ORDER BY first_name";
-            $doc_result = mysql_query($doc_query);
-            while ($doc = mysql_fetch_assoc($doc_result)) {
+            $doc_result = mysqli_query($con, $doc_query);
+            while ($doc = mysqli_fetch_assoc($doc_result)) {
                 $selected = ($doc['doctor_id'] == $row['doctor_id']) ? 'selected' : '';
                 echo '<option value="' . $doc['doctor_id'] . '" ' . $selected . '>Dr. ' . $doc['first_name'] . ' ' . $doc['last_name'] . ' (' . $doc['specialization'] . ')</option>';
             }
@@ -113,4 +117,4 @@ $row = mysql_fetch_assoc($result);
 </body>
 </html>
 
-<?php mysql_close(); ?>
+<?php mysqli_close(); ?>

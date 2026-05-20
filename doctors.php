@@ -1,10 +1,14 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('config.php');
 
 // Delete doctor
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
-    mysql_query("DELETE FROM Doctor WHERE doctor_id = $delete_id");
+    mysqli_query($con, "DELETE FROM Doctor WHERE doctor_id = $delete_id");
     header("Location: doctors.php?msg=deleted");
     exit();
 }
@@ -122,8 +126,8 @@ if (isset($_GET['msg'])) {
               <option value="">-- Select --</option>
               <?php
                 $dept_query = "SELECT * FROM Department ORDER BY department_name";
-                $dept_result = mysql_query($dept_query);
-                while ($dept = mysql_fetch_assoc($dept_result)) {
+                $dept_result = mysqli_query($con, $dept_query);
+                while ($dept = mysqli_fetch_assoc($dept_result)) {
                     echo '<option value="' . $dept['department_id'] . '">' . $dept['department_name'] . '</option>';
                 }
                 ?>
@@ -222,19 +226,19 @@ if (isset($_GET['msg'])) {
 
       <?php
         $query = "SELECT * FROM Doctor ORDER BY doctor_id ASC";
-        $result = mysql_query($query);
+        $result = mysqli_query($con, $query);
 
-        if (mysql_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
             $row_count = 0;
-            while ($row = mysql_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $row_count++;
                 $bg_color = ($row_count % 2 == 0) ? '#f9f9f9' : '#ffffff';
                 
                 // Get department name from department_id
                 $dept_id = $row['department_id'];
                 $dept_query = "SELECT department_name FROM Department WHERE department_id = $dept_id";
-                $dept_result = mysql_query($dept_query);
-                $dept_row = mysql_fetch_assoc($dept_result);
+                $dept_result = mysqli_query($con, $dept_query);
+                $dept_row = mysqli_fetch_assoc($dept_result);
                 $dept_name = $dept_row ? $dept_row['department_name'] : 'Unknown';
                 
                 echo '<tr style="background: ' . $bg_color . '; border-bottom: 1px solid #eee;">';

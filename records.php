@@ -1,11 +1,14 @@
 <?php
 include('config.php');
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Delete medical record
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
-    mysql_query("DELETE FROM Prescription WHERE record_id = $delete_id");
-    mysql_query("DELETE FROM MedicalRecord WHERE record_id = $delete_id");
+    mysqli_query($con, "DELETE FROM Prescription WHERE record_id = $delete_id");
+    mysql_query($con, "DELETE FROM MedicalRecord WHERE record_id = $delete_id");
     header("Location: records.php?msg=deleted");
     exit();
 }
@@ -112,8 +115,8 @@ if (isset($_GET['msg'])) {
               <option value="">-- Select Doctor --</option>
                     <?php
                             $doc_query = "SELECT * FROM Doctor ORDER BY first_name";
-                            $doc_result = mysql_query($doc_query);
-                            while ($doc = mysql_fetch_assoc($doc_result)) {
+                            $doc_result = mysqli_query($con, $doc_query);
+                            while ($doc = mysqli_fetch_assoc($doc_result)) {
                                 echo '<option value="' . $doc['doctor_id'] . '">Dr. ' . $doc['first_name'] . ' ' . $doc['last_name'] . '</option>';
                             }
                     ?>
@@ -130,8 +133,8 @@ if (isset($_GET['msg'])) {
               <option value="">-- Select Patient --</option>
                       <?php
                             $pat_query = "SELECT * FROM Patient ORDER BY first_name";
-                            $pat_result = mysql_query($pat_query);
-                            while ($pat = mysql_fetch_assoc($pat_result)) {
+                            $pat_result = mysqli_query($con, $pat_query);
+                            while ($pat = mysqli_fetch_assoc($pat_result)) {
                                 echo '<option value="' . $pat['patient_id'] . '">' . $pat['first_name'] . ' ' . $pat['last_name'] . '</option>';
                             }
                       ?>
@@ -321,11 +324,11 @@ if (isset($_GET['msg'])) {
                     JOIN Doctor d ON m.doctor_id = d.doctor_id
                     LEFT JOIN Prescription r ON m.record_id = r.record_id
                     ORDER BY m.record_id DESC";
-          $result = mysql_query($query);
+          $result = mysqli_query($con, $query);
 
-          if (mysql_num_rows($result) > 0) {
+          if (mysqli_num_rows($result) > 0) {
               $row_count = 0;
-              while ($row = mysql_fetch_assoc($result)) {
+              while ($row = mysqli_fetch_assoc($result)) {
                   $row_count++;
                   $bg_color = ($row_count % 2 == 0) ? '#f9f9f9' : '#ffffff';
                   
