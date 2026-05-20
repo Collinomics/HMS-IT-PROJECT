@@ -165,4 +165,4 @@ $row = mysqli_fetch_assoc($result);
 </body>
 </html>
 
-<?php mysqli_close(); ?>
+<?php mysqli_close($con); ?>

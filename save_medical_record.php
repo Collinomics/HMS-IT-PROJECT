@@ -80,5 +80,5 @@ if (mysqli_query($con, $query1)) {
     echo "<script>alert('Error saving medical record: " . mysqli_error() . "'); window.location='records.php';</script>";
 }
 
-mysqli_close();
+mysqli_close($con);
 ?>

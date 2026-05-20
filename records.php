@@ -1,14 +1,17 @@
 <?php
-include('config.php');
+
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
+include('config.php');
+
 
 // Delete medical record
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
     mysqli_query($con, "DELETE FROM Prescription WHERE record_id = $delete_id");
-    mysql_query($con, "DELETE FROM MedicalRecord WHERE record_id = $delete_id");
+    mysqli_query($con, "DELETE FROM MedicalRecord WHERE record_id = $delete_id");
     header("Location: records.php?msg=deleted");
     exit();
 }

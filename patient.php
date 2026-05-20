@@ -15,7 +15,7 @@ if (isset($_GET['msg'])) {
 // Delete patient
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
-    mysql_query("DELETE FROM Patient WHERE patient_id = $delete_id");
+    mysqli_query($con, "DELETE FROM Patient WHERE patient_id = $delete_id");
     header("Location: patient.php?msg=deleted");
     exit();
 }
