@@ -25,8 +25,7 @@ if (mysqli_query($con, $query)) {
     header("Location: patient.php?msg=added");
     exit();
 } else {
-    echo "Error: " . mysql_error();
+    echo "Error: " . mysqli_error($con); // Fixed from mysql_error()
 }
 
-mysql_close();
-?>
+mysqli_close($con); // Fixed from mysql_close()
