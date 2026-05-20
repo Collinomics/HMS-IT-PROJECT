@@ -1,11 +1,11 @@
 # Hospital Management Information System (HMIS)
-# City Hospital — Kampala, Uganda
+### City Hospital — Kampala, Uganda
 
 A web-based Hospital Management Information System built with PHP and MySQL, designed to streamline hospital operations including patient registration, doctor management, appointment scheduling and medical records.
 
 ---
 
-# Features
+## Features
 
 - **Patient Management** — Register, view, edit, and delete patient records
 - **Doctor Management** — Manage doctor profiles linked to departments
@@ -16,20 +16,20 @@ A web-based Hospital Management Information System built with PHP and MySQL, des
 
 ---
 
-# Tech Stack
+## Tech Stack
 
-| Layer    | Technology |
-|
-| Backend = PHP (procedural) |
-| Database = MySQL (via MySQLi) |
-| Frontend = HTML, CSS (custom `style.css`) |
-| Server = Apache / XAMPP / LAMP |
+| Layer | Technology |
+|---|---|
+| Backend | PHP (procedural) |
+| Database | MySQL (via MySQLi) |
+| Frontend | HTML, CSS (custom `style.css`) |
+| Server | Apache / XAMPP / LAMP |
 
 ---
 
-# Project Structure
+## Project Structure
 
-
+```
 HMS-IT-PROJECT-main/
 ├── index.php                  # Home / dashboard
 ├── config.php                 # Database connection
@@ -64,7 +64,7 @@ HMS-IT-PROJECT-main/
     ├── instagram.png
     ├── linkedin.png
     └── whatsapp.png
-
+```
 
 ---
 
@@ -72,13 +72,13 @@ HMS-IT-PROJECT-main/
 
 The application connects to a MySQL database named `hospital_db`. Create it and the required tables before running the project.
 
-* 1. Create the database:**
+**1. Create the database:**
 ```sql
 CREATE DATABASE hospital_db;
 USE hospital_db;
 ```
 
-* 2. Create the tables:**
+**2. Create the tables:**
 ```sql
 CREATE TABLE Department (
     department_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -139,24 +139,24 @@ CREATE TABLE Prescription (
 
 ---
 
-# Installation & Setup
+## Installation & Setup
 
-# Requirements
+### Requirements
 
 - PHP 7.4 or higher
 - MySQL 5.7 or higher
 - A local server environment: [XAMPP](https://www.apachefriends.org/) (recommended), WAMP, or LAMP
 
-# Steps
+### Steps
 
 1. **Clone or download** this repository into your server's web root:
-   
+   ```
    # For XAMPP on Windows:
    C:/xampp/htdocs/HMS-IT-PROJECT-main/
 
    # For XAMPP on Linux/macOS:
    /opt/lampp/htdocs/HMS-IT-PROJECT-main/
-   
+   ```
 
 2. **Set up the database** by running the SQL statements from the [Database Setup](#database-setup) section above in phpMyAdmin or the MySQL CLI.
 
@@ -203,8 +203,8 @@ Navigate using the top navigation bar:
 
 ---
 
-# Contact
+## Contact
 
-* City Hospital *
+**City Hospital**
 📍 Kampala, Uganda
 📞 +256 756 950 472
