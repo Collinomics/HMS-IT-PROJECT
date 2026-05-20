@@ -186,9 +186,9 @@ include('config.php');
                 JOIN Doctor d ON a.doctor_id = d.doctor_id
                 ORDER BY a.appointment_date ASC, a.appointment_time ASC
                 LIMIT 5";
-      $result = mysql_query($query);
+      $result = mysqli_query($con, $query);
 
-      if (mysql_num_rows($result) > 0) {
+      if (mysqli_num_rows($result) > 0) {
           $row_count = 0;
           while ($row = mysql_fetch_assoc($result)) {
               $row_count++;
