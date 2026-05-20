@@ -3,6 +3,6 @@ $username = "root";
 $password = "";
 $database = "hospital_db";
 
-mysql_connect("localhost", $username, $password) or die("Unable to connect to MySQL");
-mysql_select_db($database) or die("Unable to select database: " . $database);
+$con = mysqli_connect("localhost", $username, $password) or die("Unable to connect to MySQL");
+mysqli_select_db($con, $database) or die("Unable to select database: " . $database);
 ?>
