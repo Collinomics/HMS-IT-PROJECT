@@ -17,23 +17,15 @@ include('config.php');
 </head>
 
 <body>
-<div class="manage" style="padding: 2px 0; font-size: 12px; color: white; background-color: #2c3e50; letter-spacing: 1px; font-family: arial; text-align: center;">HOSPITAL MANAGEMENT INFORMATION SYSTEM</div>
+<div class="manage" style="padding: 4px 0; font-size: 20px; color: beige; background-color: #2c3e50; letter-spacing: 2px; font-family: arial; text-align: center;">HOSPITAL MANAGEMENT INFORMATION SYSTEM</div>
 <!-- Top Bar -->
-<table width="99%" height="10" border="0" cellpadding="0" cellspacing="0" class="top-bar">
+<table width="100%" height="10" border="0" cellpadding="0" cellspacing="0" class="top-bar">
   <tbody>
     <tr bgcolor="#F8F9FA" style="font-family: Arial; color: #555555;">
-      <td width="31%" style="text-align: center">📞 <a href="tel:+256756950472">+256 756 950 472</a></td>
-      <td width="35%" style="text-align: center">📍 <a href="https://maps.google.com/?q=Kampala+Uganda+Hospital">Kampala, Uganda</a></td>
+      
+      
       <td width="34%" style="text-align: center"><table width="100%" border="0" cellpadding="2">
-        <tbody>
-          <tr style="text-align: center">
-            <td width="153" style="text-align: right; font-weight: bold;">Follow us:</td>
-            <td width="25"><a href="https://www.twitter.com/hospitalpage"><img src="resources/twitter.png" width="15" height="15" alt="Twitter"/></a></td>
-            <td width="25"><a href="https://www.facebook.com/hospitalpage"><img src="resources/facebook.png" width="15" height="15" alt="Facebook"/></a></td>
-            <td width="25"><a href="https://www.linkedin.com/company/hospital"><img src="resources/linkedin.png" width="15" height="15" alt="LinkedIn"/></a></td>
-            <td width="25"><a href="https://www.instagram.com/company/hospital"><img src="resources/instagram.png" width="15" height="15" alt="Instagram"/></a></td>
-          </tr>
-        </tbody>
+        
       </table></td>
     </tr>
   </tbody>
@@ -63,12 +55,12 @@ include('config.php');
       <td width="41%" valign="middle"><table width="100%" border="0" cellpadding="2" cellspacing="0" class="nav-table">
         <tbody>
           <tr>
-            <td width="14%" style="font-weight: 400;"><a href="index.php">Home</a></td>
-            <td width="18%" style="font-weight: 400"><a href="patient.php">Patients</a></td>
-            <td width="18%" style="font-weight: 400"><a href="doctors.php">Doctors</a></td>
-            <td width="23%" style="font-weight: 400"><a href="appointments.php">Appointments</a></td>
-            <td width="18%" style="font-weight: 400"><a href="records.php">Records</a></td>
-			      <td width="23%" style="font-weight: 400"><a href="departments.php">Departments</a></td>
+            <td width="14%" style="font-weight: 200;"><a href="index.php">Home</a></td>
+            <td width="18%" style="font-weight: 200"><a href="patient.php">Patients</a></td>
+            <td width="18%" style="font-weight: 200"><a href="doctors.php">Doctors</a></td>
+            <td width="23%" style="font-weight: 200"><a href="appointments.php">Appointments</a></td>
+            <td width="18%" style="font-weight: 200"><a href="records.php">Records</a></td>
+			      <td width="23%" style="font-weight: 200"><a href="departments.php">Departments</a></td>
           </tr>
         </tbody>
       </table></td>
@@ -83,7 +75,7 @@ include('config.php');
   <tbody>
     <tr>
       <td align="center" style="text-align: center; font-size: 24px;">
-        <p><span style="font-size: 18px; color: #2c3e50;">Welcome to</span><br>
+        <p><span style="font-size: 18px; color: #2c3e50;">  WELCOME TO</span><br>
         <span style="font-size: 42px; font-weight: bold; color: #2c3e50;" class="hero-title">CITY HOSPITAL</span></p>
         <p style="font-size: 20px; color: #555555;">Quality Healthcare for Every Patient</p>
         <p> 
@@ -304,7 +296,7 @@ include('config.php');
     
     <tr>
       <td bgcolor="#1a252f" style="padding-top: 15px; padding-bottom: 15px; text-align: center;">
-        <p style="font-family: Arial; font-size: 12px; font-weight: normal; color: #7f8c8d; margin: 0;">© 2025 City Hospital. All rights reserved.</p>
+        <p style="font-family: Arial; font-size: 12px; font-weight: normal; color: #7f8c8d; margin: 0;">© 2026 City Hospital. All rights reserved.</p>
       </td>
     </tr>
   </tbody>
